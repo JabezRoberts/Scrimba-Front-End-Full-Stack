@@ -1,0 +1,4 @@
+/*
+	Count the number of cars
+		where sold is true
+*/
