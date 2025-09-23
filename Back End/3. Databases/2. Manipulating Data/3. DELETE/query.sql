@@ -43,3 +43,31 @@ LEFT JOIN sold_cars ON staff.id = sold_cars.seller
 WHERE role = 'Salesperson'
 GROUP BY name, role
 ORDER BY SUM(total_sales) DESC;
+/*
+	Select the name, role and city from sold_cars
+	
+	Join with the staff and dealerships tables
+		use appropriate joins to show staff who have no dealership_id
+		
+	Include a where clause to find
+		- null values in sold_cars
+		- staff who have the role 'Salesperson'
+*/
+SELECT name, role, city FROM sold_cars SC
+RIGHT JOIN staff S ON SC.seller = S.id 
+WHERE SC.id IS NULL AND role = 'Salesperson'
+LEFT JOIN dealerships ON S.dealership_id = dealerships.id;
+/*
+	Show the city and state of dealerships
+		with a count of the cars sold
+		aliased as cars_sold
+		
+	Select from sold_cars
+		join with the relevant tables
+		
+	Include dealerships which have no sold cars
+	
+	Order the count in descending order
+		
+	Hint: you may need to join using a table not included in our columns
+*/
